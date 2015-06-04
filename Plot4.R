@@ -34,13 +34,10 @@ plot(epcFull$DateTime, epcFull$Global_active_power, type="l",main="Power Consump
 #2
 plot(epcFull$DateTime, epcFull$Voltage, type="l",main="Power Consumption Feb 1 and 2, 2007",xlab="Day of the Week",ylab="Voltage")
 #3
-xrange<-range(epcFull$DateTime)
-xlegend <-xrange[1] +3*(xrange[2]-xrange[1])/4 
-yrange <- range(epcFull$Sub_metering_1)
 plot(epcFull$DateTime, epcFull$Sub_metering_1, type="l",main="Power Consumption Feb 1 and 2, 2007",xlab="Day of the Week",ylab="Energy sub metering (kilowatts)")
 lines(epcFull$DateTime,epcFull$Sub_metering_2,col="red")
 lines(epcFull$DateTime,epcFull$Sub_metering_3,col="blue")
-legend(xlegend,yrange[2]+1.5, 1:3, cex=0.8,legend=c("sub meter 1","sub meter 2","sub meter 3"), pch=-1,lty=1,col=c("black","red","blue"))
+legend("topright", 1:3, cex=0.8,legend=c("sub meter 1","sub meter 2","sub meter 3"), pch=-1,lty=1,col=c("black","red","blue"))
 #4
 plot(epcFull$DateTime, epcFull$Global_reactive_power, type="l",main="Power Consumption Feb 1 and 2, 2007",xlab="Day of the Week",ylab="Global reactive Power (kilowatts)")
 par(old.par)

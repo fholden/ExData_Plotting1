@@ -1,6 +1,6 @@
 # Start with a clean slate
 rm(list=ls())
-
+setwd("/Users/fholden/coursea/EDA/ExData_Plotting1")
 # Check to see if the target data file exists where it is supposed to be
 # If not then download it and unzip it
 fileName <- "DataSources/household_power_consumption.txt"
@@ -28,13 +28,10 @@ epcFull$DateTime <- strptime(epcFull$DateTime,format="%d/%m/%Y %H:%M:%S")
 
 # do Plot 3
 png(filename="Plot3.png",width = 480, height = 480)
-xrange<-range(epcFull$DateTime)
-xlegend <-xrange[1] +3*(xrange[2]-xrange[1])/4 
-yrange <- range(epcFull$Sub_metering_1)
 plot(epcFull$DateTime, epcFull$Sub_metering_1, type="l",main="Power Consumption Feb 1 and 2, 2007",xlab="Day of the Week",ylab="Energy sub metering (kilowatts)")
 lines(epcFull$DateTime,epcFull$Sub_metering_2,col="red")
 lines(epcFull$DateTime,epcFull$Sub_metering_3,col="blue")
-legend(xlegend,yrange[2]+1.5, 1:3, cex=0.8,legend=c("sub meter 1","sub meter 2","sub meter 3"), pch=-1,lty=1,col=c("black","red","blue"))
+legend("topright", 1:3, cex=0.8,legend=c("sub meter 1","sub meter 2","sub meter 3"), pch=-1,lty=1,col=c("black","red","blue"))
 dev.off()
 
 
